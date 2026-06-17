@@ -42,3 +42,27 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# --- repo cleanup hygiene (added) ---
+node_modules/
+dist/
+build/
+out/
+.next/
+.turbo/
+.vite/
+.cache/
+coverage/
+test-results/
+playwright-report/
+output/
+tmp/
+*.log
+Thumbs.db
+*.swp
+*.bak
+*.orig
+.env
+.env.local
+.env.*.local
+promo/
