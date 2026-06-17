@@ -30,7 +30,7 @@ export const projects: Project[] = [
     stack: ["TypeScript", "React", "Tailwind CSS", "Admin UX"],
     status: "MVP",
     featured: true,
-    githubUrl: "https://github.com/flegartech-mvp/PametniSistemCakalnice",
+    githubUrl: "https://github.com/flegartech-mvp/pametni-sistem-cakalnice",
     accent: "from-[#75b183] to-[#a775d1]",
     metric: "Queue system",
     caseStudy: {
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     stack: ["TypeScript", "React", "Product UI", "Tracking"],
     status: "In development",
     featured: false,
-    githubUrl: "https://github.com/flegartech-mvp/FitnessTrackerApp",
+    githubUrl: "https://github.com/flegartech-mvp/pulse-fitness-tracker",
     accent: "from-[#75b183] to-[#d87c68]",
     metric: "Health app",
     caseStudy: {
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     stack: ["JavaScript", "Automation", "Data Logging", "UX"],
     status: "In development",
     featured: false,
-    githubUrl: "https://github.com/flegartech-mvp/AutoLifeLogger",
+    githubUrl: "https://github.com/flegartech-mvp/auto-life-logger",
     accent: "from-[#75b183] to-[#82a8e8]",
     metric: "Automation tool",
     caseStudy: {
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     stack: ["JavaScript", "Chrome Extension", "Browser APIs", "Product UX"],
     status: "MVP",
     featured: true,
-    githubUrl: "https://github.com/flegartech-mvp/YoutubeFocus",
+    githubUrl: "https://github.com/flegartech-mvp/youtube-focus",
     accent: "from-[#75b183] to-[#d85f5f]",
     metric: "Focus extension",
     caseStudy: {
@@ -186,7 +186,7 @@ export const projects: Project[] = [
     stack: ["JavaScript", "AI", "Automation", "Integrations"],
     status: "In development",
     featured: false,
-    githubUrl: "https://github.com/flegartech-mvp/AiAutomationBot",
+    githubUrl: "https://github.com/flegartech-mvp/ai-automation-bot",
     accent: "from-[#75b183] to-[#c8d85f]",
     metric: "AI workflow",
     caseStudy: {
@@ -237,7 +237,7 @@ export const projects: Project[] = [
     stack: ["TypeScript", "Finance UX", "Dashboards", "MVP"],
     status: "In development",
     featured: true,
-    githubUrl: "https://github.com/flegartech-mvp/StudentskiDenar",
+    githubUrl: "https://github.com/flegartech-mvp/studentski-denar",
     accent: "from-[#75b183] to-[#d6b55e]",
     metric: "Finance tool",
     caseStudy: {
@@ -263,7 +263,7 @@ export const projects: Project[] = [
     stack: ["JavaScript", "Chrome Extension", "AI Analysis", "Browser APIs"],
     status: "MVP",
     featured: true,
-    githubUrl: "https://github.com/flegartech-mvp/AvtoNetGarage",
+    githubUrl: "https://github.com/flegartech-mvp/avtonet-garage",
     accent: "from-[#75b183] to-[#9eb0bd]",
     metric: "Vehicle tool",
     caseStudy: {
