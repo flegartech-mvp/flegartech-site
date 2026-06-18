@@ -1,23 +1,28 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, FolderGit } from "lucide-react";
+import { ArrowRight, Braces, FolderGit } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 function ProjectVisual({ project }: { project: Project }) {
   return (
-    <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-[#080b09]">
-      <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-15`} />
-      <Image
-        src={project.image.src}
-        alt={project.image.alt}
-        fill
-        sizes="(min-width: 1024px) 50vw, (min-width: 640px) 90vw, 100vw"
-        className="object-contain p-3"
-      />
-      <span className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-md border border-white/10 bg-black/45 px-2.5 py-1 text-xs text-zinc-200 backdrop-blur">
-        {project.metric}
+    <div className="relative h-56 overflow-hidden border-b border-white/10 bg-[#080b09]">
+      <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-20`} />
+      <div className="absolute inset-x-5 top-5 flex items-center justify-between rounded-md border border-white/10 bg-black/35 px-3 py-2 text-xs text-zinc-300 backdrop-blur">
+        <span>{project.metric}</span>
         <span className="h-2 w-2 rounded-full bg-[#75b183] shadow-[0_0_18px_rgba(117,177,131,0.9)]" />
-      </span>
+      </div>
+      <div className="absolute inset-x-5 bottom-5 rounded-md border border-white/10 bg-[#050705]/75 p-4 shadow-2xl backdrop-blur">
+        <div className="mb-4 h-2 w-24 rounded-full bg-white/15" />
+        <div className="grid grid-cols-3 gap-3">
+          <div className="col-span-2 space-y-2">
+            <div className="h-3 rounded-full bg-[#75b183]/70" />
+            <div className="h-3 w-3/4 rounded-full bg-white/15" />
+            <div className="h-3 w-1/2 rounded-full bg-white/10" />
+          </div>
+          <div className="grid place-items-center rounded-md border border-[#75b183]/25 bg-[#75b183]/10">
+            <Braces className="h-8 w-8 text-[#75b183]" aria-hidden="true" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check, FolderGit } from "lucide-react";
@@ -73,23 +72,6 @@ export default async function ProjectPage({ params }: Props) {
             </div>
           </header>
 
-          <div className="mt-8 overflow-hidden rounded-xl border border-white/10 bg-[#080b09] shadow-2xl shadow-black/40">
-            <div className="relative aspect-[16/10]">
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-15`}
-                aria-hidden="true"
-              />
-              <Image
-                src={project.image.src}
-                alt={project.image.alt}
-                fill
-                priority
-                sizes="(min-width: 896px) 768px, 100vw"
-                className="object-contain p-3 sm:p-5"
-              />
-            </div>
-          </div>
-
           <div className="mt-12 space-y-10">
             {sections.map(([title, text]) => (
               <section key={title}>
@@ -113,50 +95,6 @@ export default async function ProjectPage({ params }: Props) {
                 ))}
               </ul>
             </section>
-
-            {project.gallery.length > 0 ? (
-              <section aria-labelledby="gallery-heading">
-                <h2
-                  id="gallery-heading"
-                  className="text-sm font-semibold uppercase tracking-[0.24em] text-[#75b183]"
-                >
-                  Screenshots
-                </h2>
-                <p className="mt-3 text-sm text-zinc-400">
-                  Real screenshots from the project. Select any image to open it full size.
-                </p>
-                <ul className="mt-5 grid gap-4 sm:grid-cols-2">
-                  {project.gallery.map((shot) => (
-                    <li key={shot.src}>
-                      <a
-                        href={shot.src}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${shot.alt}. Opens the full-size screenshot in a new tab.`}
-                        className="group block overflow-hidden rounded-lg border border-white/10 bg-[#080b09] transition hover:border-[#75b183]/45"
-                      >
-                        <div className="relative aspect-[16/10] overflow-hidden">
-                          <div
-                            className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-10`}
-                            aria-hidden="true"
-                          />
-                          <Image
-                            src={shot.src}
-                            alt={shot.alt}
-                            fill
-                            sizes="(min-width: 640px) 45vw, 100vw"
-                            className="object-contain p-2 transition duration-300 group-hover:scale-[1.02]"
-                          />
-                        </div>
-                        <p className="border-t border-white/10 px-3 py-2 text-xs leading-5 text-zinc-400">
-                          {shot.alt}
-                        </p>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ) : null}
           </div>
 
           <div className="mt-12 flex flex-wrap gap-3">
