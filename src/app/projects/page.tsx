@@ -7,7 +7,7 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "All FlegarTech projects: web apps, dashboards, browser extensions and automation tools — each with a case study.",
+    "All FlegarTech projects: web apps, dashboards, browser extensions and automation tools, presented with real screenshots and case studies.",
   alternates: { canonical: "/projects" },
 };
 
@@ -22,11 +22,12 @@ export default function ProjectsPage() {
               All Projects
             </p>
             <h1 className="text-3xl font-semibold tracking-normal text-white sm:text-5xl">
-              Every build, honestly labeled.
+              Every build, honestly labeled and visually reviewed.
             </h1>
             <p className="mt-4 text-base leading-7 text-zinc-400 sm:text-lg">
               MVPs that work today, products in active development and experiments that feed the
-              production work — each with a case study explaining the thinking.
+              production work — each with real project context and selected screenshots where
+              strong assets exist.
             </p>
           </div>
           <div className="grid gap-5 lg:grid-cols-2">

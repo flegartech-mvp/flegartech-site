@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
+const isVercelDeployment = process.env.VERCEL === "1";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -74,7 +76,7 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
-        <Analytics />
+        {isVercelDeployment ? <Analytics /> : null}
       </body>
     </html>
   );

@@ -7,6 +7,14 @@ export type CaseStudy = {
   highlights: string[];
 };
 
+export type ProjectScreenshot = {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption: string;
+};
+
 export type Project = {
   name: string;
   slug: string;
@@ -18,163 +26,120 @@ export type Project = {
   demoUrl?: string;
   accent: string;
   metric: string;
+  screenshots: ProjectScreenshot[];
   caseStudy: CaseStudy;
 };
 
 export const projects: Project[] = [
   {
-    name: "Pametni Sistem Cakalnice",
-    slug: "pametni-sistem-cakalnice",
-    description:
-      "Smart queue management system for waiting rooms, built around live status tracking, admin control and clearer customer flow.",
-    stack: ["TypeScript", "React", "Tailwind CSS", "Admin UX"],
-    status: "MVP",
-    featured: true,
-    githubUrl: "https://github.com/flegartech-mvp/pametni-sistem-cakalnice",
-    accent: "from-[#75b183] to-[#a775d1]",
-    metric: "Queue system",
-    caseStudy: {
-      problem:
-        "Waiting rooms run on paper lists and guesswork: visitors don't know how long they'll wait, and staff have no clean way to manage the queue or communicate delays.",
-      approach:
-        "A web-based queue system with two faces — a public display that shows live queue status, and an admin panel where staff manage entries, call the next visitor and adjust the flow in real time. Built with React and TypeScript so the same codebase serves both views.",
-      outcome:
-        "A working MVP that demonstrates the full loop: visitors join the queue, see their live position, and staff control everything from a simple dashboard. Structured so a booking step or SMS notifications can be added without rework.",
-      highlights: [
-        "Live queue status visible to visitors",
-        "Admin panel for managing and calling entries",
-        "Single typed codebase for public and staff views",
-        "Designed for clinics, offices and service counters",
-      ],
-    },
-  },
-  {
     name: "DriveWise",
     slug: "drivewise",
     description:
-      "Driving telematics MVP for turning raw trip data into safety insights, driver scoring and practical fleet-ready dashboards.",
-    stack: ["Telematics", "Dashboards", "Analytics", "MVP"],
+      "Driving telematics MVP that turns trips into transparent safety scores, risk maps and fleet-ready admin dashboards.",
+    stack: ["Telematics", "React", "NestJS", "Prisma", "Leaflet"],
     status: "MVP",
     featured: true,
     githubUrl: "https://github.com/flegartech-mvp/drivewise",
     accent: "from-[#75b183] to-[#5f95d8]",
     metric: "Telematics MVP",
+    screenshots: [
+      {
+        src: "/projects/drivewise/dashboard-desktop.webp",
+        width: 1440,
+        height: 900,
+        alt: "DriveWise overview dashboard with trip, distance and scoring metrics",
+        caption: "Overview dashboard",
+      },
+      {
+        src: "/projects/drivewise/risk-map.webp",
+        width: 1440,
+        height: 900,
+        alt: "DriveWise risk map showing mapped driving risk signals",
+        caption: "Risk map",
+      },
+      {
+        src: "/projects/drivewise/trip-detail.webp",
+        width: 1440,
+        height: 900,
+        alt: "DriveWise trip detail page with route, score and event summary",
+        caption: "Trip detail",
+      },
+      {
+        src: "/projects/drivewise/mobile-dashboard.webp",
+        width: 390,
+        height: 844,
+        alt: "DriveWise mobile overview with key driving metrics",
+        caption: "Mobile overview",
+      },
+    ],
     caseStudy: {
       problem:
         "Trip data from vehicles is abundant but unreadable — raw coordinates and speed logs don't tell a fleet manager which drivers are safe or where risk accumulates.",
       approach:
-        "An analytics pipeline that turns trip data into driver safety scores, plus a dashboard that surfaces the trends that matter: harsh events, risky time windows and per-driver history. The scoring model is kept simple and explainable so the numbers can be trusted and discussed.",
+        "A monorepo with a NestJS API, React admin dashboard, transparent TypeScript scoring engine and simulation tools. The dashboard surfaces trends that matter: harsh events, risky locations, trip history and per-driver detail.",
       outcome:
-        "An MVP that proves the core value: upload trips, get scores and a dashboard a fleet operator can act on. The data model is ready for live feeds from real telematics hardware.",
+        "An MVP that proves the core value: seed demo trips, review scores and inspect the dashboard a fleet operator would use. The model is prepared for live telematics feeds and mobile data capture.",
       highlights: [
-        "Driver scoring from raw trip data",
-        "Fleet dashboard with per-driver drill-down",
-        "Explainable scoring instead of a black box",
-        "Data model prepared for live telematics feeds",
+        "Transparent driver scoring from trip and sensor data",
+        "Admin dashboard with overview, trip detail and risk map views",
+        "Simulation tooling for repeatable demo trips",
+        "Typed monorepo across API, dashboard, mobile and shared packages",
       ],
     },
   },
   {
-    name: "Fullstack Template",
-    slug: "fullstack-template",
+    name: "Pametni Sistem Čakalnice",
+    slug: "pametni-sistem-cakalnice",
     description:
-      "Production-minded starter architecture for fast MVP delivery with reusable structure, clean defaults and deployment-ready patterns.",
-    stack: ["Next.js", "TypeScript", "Full-stack", "Vercel"],
+      "Smart queue and patient-flow system for waiting rooms, with staff control, public displays and QR status views.",
+    stack: ["React", "TypeScript", "Vite", "Playwright"],
     status: "MVP",
     featured: true,
-    githubUrl: "https://github.com/flegartech-mvp/fullstack-template",
-    accent: "from-[#75b183] to-[#68d4c5]",
-    metric: "Build system",
+    githubUrl: "https://github.com/flegartech-mvp/pametni-sistem-cakalnice",
+    accent: "from-[#75b183] to-[#a775d1]",
+    metric: "Queue system",
+    screenshots: [
+      {
+        src: "/projects/pametni-sistem-cakalnice/dashboard-desktop.webp",
+        width: 1440,
+        height: 960,
+        alt: "Pametni Sistem Cakalnice staff dashboard with queue overview cards",
+        caption: "Staff dashboard",
+      },
+      {
+        src: "/projects/pametni-sistem-cakalnice/queue-management.webp",
+        width: 1440,
+        height: 960,
+        alt: "Pametni Sistem Cakalnice queue management board for waiting rooms",
+        caption: "Queue management",
+      },
+      {
+        src: "/projects/pametni-sistem-cakalnice/public-display.webp",
+        width: 1600,
+        height: 900,
+        alt: "Pametni Sistem Cakalnice public waiting room display showing the current ticket",
+        caption: "Public display",
+      },
+      {
+        src: "/projects/pametni-sistem-cakalnice/mobile-dashboard.webp",
+        width: 780,
+        height: 1688,
+        alt: "Pametni Sistem Cakalnice mobile staff dashboard",
+        caption: "Mobile staff view",
+      },
+    ],
     caseStudy: {
       problem:
-        "Every new MVP used to start with the same two days of setup: project structure, linting, environment handling, deployment config and the small decisions that don't differentiate the product.",
+        "Waiting rooms run on paper lists and guesswork: visitors don't know how long they'll wait, and staff have no clean way to manage the queue or communicate delays.",
       approach:
-        "A reusable starter that encodes those decisions once — typed end to end, sensible folder structure, environment handling and Vercel-ready deployment. Kept deliberately small so it accelerates projects instead of imposing a framework on them.",
+        "A browser-based queue system with staff dashboards, patient registration, queue state controls, room assignment, QR status pages and public display views. Built as a polished React/Vite interface with Playwright verification.",
       outcome:
-        "New client projects start at the interesting part: the product itself. The template is the foundation under several of the other projects on this site.",
+        "A presentation-ready MVP that demonstrates the full loop: staff manage patient flow, patients get clear status, and waiting-room screens show the current ticket.",
       highlights: [
-        "Typed end-to-end from data to UI",
-        "Deployment-ready for Vercel out of the box",
-        "Small surface — accelerates without dictating",
-        "Battle-tested as the base of other FlegarTech builds",
-      ],
-    },
-  },
-  {
-    name: "Fitness Tracker App",
-    slug: "fitness-tracker-app",
-    description:
-      "Fitness tracking product concept for logging workouts, following progress and keeping personal health data easy to review.",
-    stack: ["TypeScript", "React", "Product UI", "Tracking"],
-    status: "In development",
-    featured: false,
-    githubUrl: "https://github.com/flegartech-mvp/pulse-fitness-tracker",
-    accent: "from-[#75b183] to-[#d87c68]",
-    metric: "Health app",
-    caseStudy: {
-      problem:
-        "Most fitness apps optimize for streaks and notifications, not for honestly reviewing progress. Logging a workout should take seconds and reviewing a month should take one screen.",
-      approach:
-        "A web app focused on fast workout entry and a clean progress view — sets, weights and trends without gamification noise. The product decisions favor reviewing data over generating it.",
-      outcome:
-        "In active development. The logging flow and data model are in place; the progress visualizations are the current focus.",
-      highlights: [
-        "Seconds-fast workout logging flow",
-        "Progress review designed as the primary screen",
-        "Personal health data stays easy to export",
-        "No gamification, no notification spam",
-      ],
-    },
-  },
-  {
-    name: "Auto Life Logger",
-    slug: "auto-life-logger",
-    description:
-      "Automation-focused logging tool for capturing recurring life or vehicle events and turning them into structured history.",
-    stack: ["JavaScript", "Automation", "Data Logging", "UX"],
-    status: "In development",
-    featured: false,
-    githubUrl: "https://github.com/flegartech-mvp/auto-life-logger",
-    accent: "from-[#75b183] to-[#82a8e8]",
-    metric: "Automation tool",
-    caseStudy: {
-      problem:
-        "Recurring events — vehicle services, filter changes, renewals — live in people's heads or in scattered notes, and the history is gone exactly when it's needed: resale, warranty, diagnosis.",
-      approach:
-        "A logging tool where each event type is structured data, not free text: date, odometer, cost, notes. Automation handles the recurring part — the tool knows what's due and what the full history looks like.",
-      outcome:
-        "In development. The event model and capture flow work; reminders and history export are next.",
-      highlights: [
-        "Structured events instead of free-text notes",
-        "Recurring schedules tracked automatically",
-        "Full history export for resale or warranty",
-        "Built for vehicles first, generic by design",
-      ],
-    },
-  },
-  {
-    name: "YouTube Focus",
-    slug: "youtube-focus",
-    description:
-      "Chrome extension that removes YouTube distractions with toggles for the feed, Shorts, comments, sidebar recommendations and Monk Mode.",
-    stack: ["JavaScript", "Chrome Extension", "Browser APIs", "Product UX"],
-    status: "MVP",
-    featured: true,
-    githubUrl: "https://github.com/flegartech-mvp/youtube-focus",
-    accent: "from-[#75b183] to-[#d85f5f]",
-    metric: "Focus extension",
-    caseStudy: {
-      problem:
-        "YouTube is a work tool and a distraction machine in the same tab. Watching one tutorial shouldn't cost an hour of recommended videos and Shorts.",
-      approach:
-        "A Chrome extension with per-feature toggles: hide the home feed, Shorts, comments or sidebar recommendations independently — or flip on Monk Mode and remove everything at once. All filtering happens locally in the browser; nothing is tracked.",
-      outcome:
-        "A working MVP used daily. The toggle architecture makes each new distraction filter one small module.",
-      highlights: [
-        "Independent toggles per distraction source",
-        "Monk Mode: one switch, zero noise",
-        "Runs fully local — no data leaves the browser",
-        "Modular filters, easy to extend",
+        "Staff dashboard for live waiting-room state",
+        "Patient check-in, priority and room assignment flows",
+        "Public display and QR-based patient status page",
+        "Reports and export-ready operational insights",
       ],
     },
   },
@@ -182,25 +147,370 @@ export const projects: Project[] = [
     name: "AI Automation Bot",
     slug: "ai-automation-bot",
     description:
-      "Automation bot project for connecting AI-assisted workflows with repeatable tasks, scripts and practical business operations.",
-    stack: ["JavaScript", "AI", "Automation", "Integrations"],
+      "Configurable e-commerce assistant that answers customer questions, collects order leads and exposes an admin dashboard.",
+    stack: ["Node.js", "JavaScript", "OpenAI API", "Playwright"],
     status: "In development",
-    featured: false,
+    featured: true,
     githubUrl: "https://github.com/flegartech-mvp/ai-automation-bot",
     accent: "from-[#75b183] to-[#c8d85f]",
     metric: "AI workflow",
+    screenshots: [
+      {
+        src: "/projects/ai-automation-bot/chat-desktop.webp",
+        width: 1440,
+        height: 901,
+        alt: "AI Automation Bot e-commerce assistant chat with a completed customer conversation",
+        caption: "Customer chat flow",
+      },
+      {
+        src: "/projects/ai-automation-bot/admin-dashboard.webp",
+        width: 1440,
+        height: 991,
+        alt: "AI Automation Bot admin dashboard with conversations and captured leads",
+        caption: "Admin dashboard",
+      },
+      {
+        src: "/projects/ai-automation-bot/mobile-chat.webp",
+        width: 390,
+        height: 1700,
+        alt: "AI Automation Bot mobile chat interface",
+        caption: "Mobile chat",
+      },
+    ],
     caseStudy: {
       problem:
-        "Plenty of business tasks are too fuzzy for a plain script but too repetitive for a human: triaging messages, drafting routine replies, extracting data from documents.",
+        "Small stores need quick answers and lead capture, but a generic chatbot does not know the product catalog, policies or order questions that matter.",
       approach:
-        "A bot framework that pairs LLM steps with deterministic scripts — the AI handles the fuzzy part, the script handles the reliable part, and every run leaves an auditable trail.",
+        "A configurable bot reads a store config, answers product and order questions, saves customer leads locally and gives the owner an admin dashboard. Without an API key it runs in local demo mode so the full flow can still be tested.",
       outcome:
-        "In development. The workflow runner and first integrations exist; the focus is on making runs predictable and reviewable rather than on impressive demos.",
+        "An in-development but complete demo loop: customer chat, lead capture, admin review and status updates, with production admin routes gated by an admin token.",
       highlights: [
-        "LLM steps combined with deterministic scripts",
-        "Every run produces an auditable trail",
-        "Built around real business tasks, not demos",
-        "Integration-first design",
+        "Store-specific product, policy and FAQ configuration",
+        "Local demo mode when no OpenAI API key is configured",
+        "Lead capture with admin status updates",
+        "Production admin-token protection for sensitive routes",
+      ],
+    },
+  },
+  {
+    name: "Študentski Denar",
+    slug: "studentski-denar",
+    description:
+      "Browser-first budgeting app for Slovenian students with survival-mode spending guidance and mobile quick entry.",
+    stack: ["React", "TypeScript", "Vite", "Local storage"],
+    status: "In development",
+    featured: true,
+    githubUrl: "https://github.com/flegartech-mvp/studentski-denar",
+    accent: "from-[#75b183] to-[#d6b55e]",
+    metric: "Finance tool",
+    screenshots: [
+      {
+        src: "/projects/studentski-denar/dashboard-desktop.webp",
+        width: 1440,
+        height: 1740,
+        alt: "Studentski Denar monthly overview dashboard with safe-to-spend budgeting data",
+        caption: "Monthly overview",
+      },
+      {
+        src: "/projects/studentski-denar/income-desktop.webp",
+        width: 1440,
+        height: 900,
+        alt: "Studentski Denar income tracking page for student income categories",
+        caption: "Income tracking",
+      },
+      {
+        src: "/projects/studentski-denar/expenses-desktop.webp",
+        width: 1440,
+        height: 1014,
+        alt: "Studentski Denar expenses page with categorized spending entries",
+        caption: "Expense categories",
+      },
+      {
+        src: "/projects/studentski-denar/mobile-quick-expense.webp",
+        width: 780,
+        height: 1688,
+        alt: "Studentski Denar mobile quick expense entry sheet",
+        caption: "Mobile quick entry",
+      },
+    ],
+    caseStudy: {
+      problem:
+        "Students live on irregular income — student work, allowances, seasonal jobs — and mainstream budgeting apps assume a salary. The result is usually no budget at all.",
+      approach:
+        "A local-first budgeting app designed around irregular student income: Slovenian categories, one clear safe-to-spend number, recurring costs, mobile quick expense entry and a supporter/license flow.",
+      outcome:
+        "In development, with the core budgeting model, onboarding, monthly overview, mobile quick entry and privacy-first browser storage in place.",
+      highlights: [
+        "Designed for irregular Slovenian student income",
+        "Survival Mode with daily safe-spend guidance",
+        "Mobile quick expense entry with recent templates",
+        "Browser-local data with backup reminders",
+      ],
+    },
+  },
+  {
+    name: "Fitness Tracker App",
+    slug: "fitness-tracker-app",
+    description:
+      "Private local-first fitness tracker for workouts, exercise history, body metrics, progress charts and goals.",
+    stack: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    status: "In development",
+    featured: true,
+    githubUrl: "https://github.com/flegartech-mvp/pulse-fitness-tracker",
+    accent: "from-[#75b183] to-[#d87c68]",
+    metric: "Health app",
+    screenshots: [
+      {
+        src: "/projects/fitness-tracker-app/dashboard-desktop.webp",
+        width: 1440,
+        height: 1610,
+        alt: "Fitness Tracker App dashboard with workout plan, streak and weekly stats",
+        caption: "Fitness dashboard",
+      },
+      {
+        src: "/projects/fitness-tracker-app/workout-complete.webp",
+        width: 1440,
+        height: 1371,
+        alt: "Fitness Tracker App completed workout summary with sets and session metrics",
+        caption: "Completed workout",
+      },
+      {
+        src: "/projects/fitness-tracker-app/progress-analytics.webp",
+        width: 1440,
+        height: 2041,
+        alt: "Fitness Tracker App progress page with body weight and volume charts",
+        caption: "Progress analytics",
+      },
+      {
+        src: "/projects/fitness-tracker-app/mobile-dashboard.webp",
+        width: 390,
+        height: 844,
+        alt: "Fitness Tracker App mobile dashboard with workout and streak cards",
+        caption: "Mobile dashboard",
+      },
+    ],
+    caseStudy: {
+      problem:
+        "Most fitness apps optimize for streaks and notifications, not for honestly reviewing progress. Logging a workout should take seconds and reviewing a month should take one screen.",
+      approach:
+        "A local-first web app focused on workout planning, live session tracking, a built-in exercise library, body metrics, charts and goals. All stats are derived from the workout log so the data cannot drift.",
+      outcome:
+        "In active development. Demo data, dashboard, workouts, exercises, progress and goals are alive immediately, with JSON export/import and a storage boundary ready for a future backend.",
+      highlights: [
+        "Workout planning and live session tracking",
+        "70-movement exercise library with filters",
+        "Progress charts for weight, volume, consistency and records",
+        "Local browser storage with export/import",
+      ],
+    },
+  },
+  {
+    name: "AvtoNet Garaža",
+    slug: "avtonet-garage",
+    description:
+      "Chrome extension for saving avto.net listings, tracking price changes and reviewing listings with a Smart Advisor.",
+    stack: ["JavaScript", "Chrome Extension", "React", "Browser APIs"],
+    status: "MVP",
+    featured: true,
+    githubUrl: "https://github.com/flegartech-mvp/avtonet-garage",
+    accent: "from-[#75b183] to-[#9eb0bd]",
+    metric: "Vehicle tool",
+    screenshots: [
+      {
+        src: "/projects/avtonet-garage/main-feature.webp",
+        width: 1440,
+        height: 900,
+        alt: "AvtoNet Garage injected listing advisor and save confirmation on an avto.net vehicle page",
+        caption: "In-page save flow",
+      },
+      {
+        src: "/projects/avtonet-garage/popup-dashboard.webp",
+        width: 700,
+        height: 620,
+        alt: "AvtoNet Garage popup dashboard with saved vehicles and price change status",
+        caption: "Saved vehicles",
+      },
+      {
+        src: "/projects/avtonet-garage/vehicle-detail.webp",
+        width: 700,
+        height: 620,
+        alt: "AvtoNet Garage vehicle detail modal with price history and smart advisor notes",
+        caption: "Vehicle detail",
+      },
+      {
+        src: "/projects/avtonet-garage/mobile-listing.webp",
+        width: 390,
+        height: 844,
+        alt: "AvtoNet Garage mobile vehicle listing with injected save action",
+        caption: "Mobile listing",
+      },
+    ],
+    caseStudy: {
+      problem:
+        "Shopping for a car on avto.net means juggling browser tabs, re-finding listings and never knowing whether a price dropped or a listing quietly changed.",
+      approach:
+        "A Chrome extension that injects save controls and a Smart Advisor into vehicle detail pages, while a React popup manages saved listings, folders, notifications, price history and settings.",
+      outcome:
+        "A working MVP that turns marketplace browsing into a tracked, comparable shortlist. It keeps data in Chrome storage and monitors saved listings for price/status changes.",
+      highlights: [
+        "Save listings directly from avto.net detail pages",
+        "Smart Advisor scoring with positives and risk signals",
+        "Price-change, sold and removed monitoring",
+        "Folders, local storage and optional Chrome notifications",
+      ],
+    },
+  },
+  {
+    name: "Auto Life Logger",
+    slug: "auto-life-logger",
+    description:
+      "Local-first Chrome extension for tracking browsing habits, spotting distraction loops and nudging focus back on track.",
+    stack: ["JavaScript", "Chrome Extension", "Local storage", "Playwright"],
+    status: "In development",
+    featured: true,
+    githubUrl: "https://github.com/flegartech-mvp/auto-life-logger",
+    accent: "from-[#75b183] to-[#82a8e8]",
+    metric: "Focus tracker",
+    screenshots: [
+      {
+        src: "/projects/auto-life-logger/dashboard-desktop.webp",
+        width: 1600,
+        height: 1406,
+        alt: "Auto Life Logger dashboard showing browsing time, focus score and activity charts",
+        caption: "Focus analytics dashboard",
+      },
+      {
+        src: "/projects/auto-life-logger/patterns-desktop.webp",
+        width: 1600,
+        height: 1000,
+        alt: "Auto Life Logger patterns page showing detected distraction loops and intervention progress",
+        caption: "Focus patterns",
+      },
+      {
+        src: "/projects/auto-life-logger/discipline-score.webp",
+        width: 1600,
+        height: 1000,
+        alt: "Auto Life Logger discipline score dashboard with history and focus breakdown",
+        caption: "Discipline score",
+      },
+      {
+        src: "/projects/auto-life-logger/mobile-popup.webp",
+        width: 780,
+        height: 1688,
+        alt: "Auto Life Logger mobile-sized extension popup with score and site activity",
+        caption: "Extension popup",
+      },
+    ],
+    caseStudy: {
+      problem:
+        "Browser time is easy to lose and hard to understand. Raw history does not explain distraction loops, overruns or whether the day was actually focused.",
+      approach:
+        "A Manifest V3 extension tracks active HTTP/HTTPS tab sessions locally, classifies domains, shows dashboards and detects focus patterns. Optional overlays and Strict Mode intervene when distracting sites keep pulling attention.",
+      outcome:
+        "In development with the core tracking, dashboard, scoring, options, onboarding and local-only privacy model in place.",
+      highlights: [
+        "Local-only browsing session tracking",
+        "Productive, distracting and neutral domain classification",
+        "Distraction-loop and overrun detection",
+        "Strict Mode, notifications and on-page interventions",
+      ],
+    },
+  },
+  {
+    name: "YouTube Focus",
+    slug: "youtube-focus",
+    description:
+      "Chrome extension that makes YouTube calmer by hiding feeds, Shorts, comments, recommendations and other distractions.",
+    stack: ["JavaScript", "Chrome Extension", "Browser APIs", "Playwright"],
+    status: "MVP",
+    featured: true,
+    githubUrl: "https://github.com/flegartech-mvp/youtube-focus",
+    accent: "from-[#75b183] to-[#d85f5f]",
+    metric: "Focus extension",
+    screenshots: [
+      {
+        src: "/projects/youtube-focus/focused-home.webp",
+        width: 1440,
+        height: 900,
+        alt: "YouTube Focus Mode focused YouTube home page with distractions hidden",
+        caption: "Focused YouTube home",
+      },
+      {
+        src: "/projects/youtube-focus/popup-soft-lock.webp",
+        width: 390,
+        height: 652,
+        alt: "YouTube Focus Mode extension popup with timed lock enabled",
+        caption: "Timed focus lock",
+      },
+      {
+        src: "/projects/youtube-focus/watch-focused.webp",
+        width: 1440,
+        height: 900,
+        alt: "YouTube Focus Mode watch page with related distractions removed",
+        caption: "Focused watch page",
+      },
+      {
+        src: "/projects/youtube-focus/mobile-home.webp",
+        width: 390,
+        height: 844,
+        alt: "YouTube Focus Mode mobile-sized focused YouTube home page",
+        caption: "Mobile focused view",
+      },
+    ],
+    caseStudy: {
+      problem:
+        "YouTube is a work tool and a distraction machine in the same tab. Watching one tutorial should not cost an hour of recommendations, Shorts and comments.",
+      approach:
+        "A Chrome extension with a one-click Focus Mode toggle, a minimal search-first YouTube experience and a Timed Lock for 25, 50, 90 or custom-minute sessions. State stays local in Chrome storage.",
+      outcome:
+        "A working MVP with local-only settings, light/dark popup themes and smoke-tested popup/content-script behavior.",
+      highlights: [
+        "Hides feeds, Shorts, comments, related videos and notification distractions",
+        "Timed Lock for focused sessions",
+        "Search-first YouTube access while focus mode is active",
+        "Local-only settings and no analytics",
+      ],
+    },
+  },
+  {
+    name: "Fullstack Template",
+    slug: "fullstack-template",
+    description:
+      "Production-minded full-stack monorepo starter with Next.js, Express, PostgreSQL, Prisma, auth and CRUD defaults.",
+    stack: ["Next.js", "Express", "PostgreSQL", "Prisma"],
+    status: "MVP",
+    featured: false,
+    githubUrl: "https://github.com/flegartech-mvp/fullstack-template",
+    accent: "from-[#75b183] to-[#68d4c5]",
+    metric: "Build system",
+    screenshots: [
+      {
+        src: "/projects/fullstack-template/home-desktop.webp",
+        width: 1440,
+        height: 900,
+        alt: "Fullstack Template starter landing page with stack cards and command sample",
+        caption: "Starter homepage",
+      },
+      {
+        src: "/projects/fullstack-template/home-mobile.webp",
+        width: 390,
+        height: 1160,
+        alt: "Fullstack Template mobile homepage layout",
+        caption: "Mobile homepage",
+      },
+    ],
+    caseStudy: {
+      problem:
+        "Every new MVP used to start with the same setup work: project structure, auth, API validation, database wiring, seed data, deployment config and quality scripts.",
+      approach:
+        "A reusable monorepo starter encodes those decisions once: Next.js web app, Express API, Prisma/PostgreSQL database package, JWT auth, posts CRUD, seed data, Docker Compose and unified scripts.",
+      outcome:
+        "A practical starter that lets new builds begin from a working full-stack baseline instead of repeating boilerplate.",
+      highlights: [
+        "Next.js web app plus Express REST API",
+        "JWT auth and ownership-checked posts CRUD",
+        "Prisma schema, migrations and seed data",
+        "Docker Compose and workspace scripts for local setup",
       ],
     },
   },
@@ -208,76 +518,26 @@ export const projects: Project[] = [
     name: "AI Bot",
     slug: "ai-bot",
     description:
-      "Python-based AI bot foundation for experimenting with assistants, task automation and scriptable intelligence workflows.",
-    stack: ["Python", "AI", "Automation", "Bots"],
+      "Python trading research bot for backtesting, paper trading, signal scoring and transparent risk rules.",
+    stack: ["Python", "ccxt", "pandas", "scikit-learn"],
     status: "Case study",
     featured: false,
     githubUrl: "https://github.com/flegartech-mvp/ai-bot",
     accent: "from-[#75b183] to-[#6d8cff]",
-    metric: "Python bot",
+    metric: "Trading research",
+    screenshots: [],
     caseStudy: {
       problem:
-        "Assistant and automation ideas are cheap to imagine and expensive to validate without a foundation to experiment on.",
+        "Trading strategy ideas are easy to describe and hard to validate without a repeatable backtest, paper-trading loop and clear risk controls.",
       approach:
-        "A small Python foundation for scriptable AI workflows — prompt handling, task loops and tool calls — kept minimal so experiments stay readable.",
+        "A Python research tool implements multi-timeframe technical analysis, backtesting, paper trading, CSV logging, configurable risk limits and an optional machine-learning confidence filter.",
       outcome:
-        "Serves as the experimentation ground that feeds validated patterns into the production-oriented AI Automation Bot project.",
+        "A case-study project for transparent algorithmic research. Paper mode is the safe default; live trading requires explicit opt-in and user-owned exchange credentials.",
       highlights: [
-        "Minimal, readable experiment foundation",
-        "Prompt and task-loop building blocks",
-        "Feeds validated patterns into production work",
-      ],
-    },
-  },
-  {
-    name: "Studentski Denar",
-    slug: "studentski-denar",
-    description:
-      "A student finance product concept focused on cleaner budgeting flows, simple categorization and faster financial decisions.",
-    stack: ["TypeScript", "Finance UX", "Dashboards", "MVP"],
-    status: "In development",
-    featured: true,
-    githubUrl: "https://github.com/flegartech-mvp/studentski-denar",
-    accent: "from-[#75b183] to-[#d6b55e]",
-    metric: "Finance tool",
-    caseStudy: {
-      problem:
-        "Students live on irregular income — student work, allowances, seasonal jobs — and mainstream budgeting apps assume a salary. The result is usually no budget at all.",
-      approach:
-        "A budgeting flow designed around irregular income: simple categorization, one clear 'safe to spend' number and entry fast enough to use on a phone between lectures. Built in TypeScript with a dashboard-first UI.",
-      outcome:
-        "In development, with the core budgeting model and categorization flow shaped. Aimed at the Slovenian student market first.",
-      highlights: [
-        "Designed for irregular student income",
-        "One clear 'safe to spend' number",
-        "Fast mobile-first entry",
-        "Slovenian market focus",
-      ],
-    },
-  },
-  {
-    name: "AvtoNet Garage",
-    slug: "avtonet-garage",
-    description:
-      "Smart Chrome extension for avto.net that saves vehicles, tracks price changes and uses AI to review listing quality.",
-    stack: ["JavaScript", "Chrome Extension", "AI Analysis", "Browser APIs"],
-    status: "MVP",
-    featured: true,
-    githubUrl: "https://github.com/flegartech-mvp/avtonet-garage",
-    accent: "from-[#75b183] to-[#9eb0bd]",
-    metric: "Vehicle tool",
-    caseStudy: {
-      problem:
-        "Shopping for a car on avto.net means juggling browser tabs, re-finding listings and never knowing whether a price dropped or a listing quietly changed.",
-      approach:
-        "A Chrome extension that adds a personal garage on top of the marketplace: save vehicles in place, track price changes over time and get an AI-assisted read on listing quality — directly where the browsing already happens.",
-      outcome:
-        "A working MVP that turns marketplace browsing into a tracked, comparable shortlist. A good example of extending a platform users already live in instead of building a separate app.",
-      highlights: [
-        "Save and organize listings in place",
-        "Automatic price-change tracking",
-        "AI-assisted listing quality review",
-        "Zero workflow change for the user",
+        "Backtesting against historical OHLCV data",
+        "Paper trading with live market data and no real orders",
+        "Risk limits for position sizing and drawdown control",
+        "Optional ML confidence filter for signal scoring",
       ],
     },
   },

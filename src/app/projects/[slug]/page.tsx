@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check, FolderGit } from "lucide-react";
+import { ProjectGallery } from "@/components/project-gallery";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getProject, projects } from "@/data/projects";
@@ -35,12 +37,13 @@ export default async function ProjectPage({ params }: Props) {
     ["The approach", project.caseStudy.approach],
     ["Where it stands", project.caseStudy.outcome],
   ] as const;
+  const heroScreenshot = project.screenshots[0];
 
   return (
     <>
       <SiteHeader />
       <main id="main" className="min-h-screen bg-[#050705] pt-28 text-white">
-        <article className="mx-auto max-w-4xl px-4 pb-20 sm:px-6 lg:px-8">
+        <article className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-sm text-zinc-400 transition hover:text-white"
@@ -49,7 +52,7 @@ export default async function ProjectPage({ params }: Props) {
             All projects
           </Link>
 
-          <header className="mt-8">
+          <header className="mt-8 max-w-4xl">
             <div className="flex flex-wrap items-center gap-3">
               <span className="rounded-md border border-[#75b183]/30 bg-[#75b183]/10 px-3 py-1 text-xs font-semibold text-[#bce4c4]">
                 {project.status}
@@ -72,7 +75,30 @@ export default async function ProjectPage({ params }: Props) {
             </div>
           </header>
 
-          <div className="mt-12 space-y-10">
+          {heroScreenshot ? (
+            <section className="mt-12 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-2xl shadow-black/35">
+              <div className="flex h-10 items-center gap-2 border-b border-white/10 bg-[#070a08] px-4">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-300/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#75b183]/80" />
+                <span className="ml-2 h-1.5 w-40 max-w-[40vw] rounded-full bg-white/10" />
+              </div>
+              <div className="relative aspect-[16/10] bg-[#020302]">
+                <Image
+                  src={heroScreenshot.src}
+                  alt={heroScreenshot.alt}
+                  fill
+                  preload
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                  className="object-cover object-top"
+                />
+              </div>
+            </section>
+          ) : null}
+
+          <ProjectGallery screenshots={project.screenshots} />
+
+          <div className="mt-14 max-w-4xl space-y-10">
             {sections.map(([title, text]) => (
               <section key={title}>
                 <h2 className="text-sm font-semibold uppercase tracking-[0.24em] text-[#75b183]">

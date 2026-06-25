@@ -13,8 +13,8 @@ export function Projects() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Projects"
-          title="Selected work, with the story behind each build."
-          description="The strongest FlegarTech projects — each with a case study covering the problem, the approach and where it stands."
+          title="Selected work, shown through real product screens."
+          description="The strongest FlegarTech projects, ordered by portfolio value and backed by genuine screenshots from the actual builds."
         />
         <div className="grid gap-5 lg:grid-cols-2">
           {featuredProjects.map((project) => (
