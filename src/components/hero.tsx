@@ -55,6 +55,7 @@ export function Hero() {
                 height={86}
                 preload
                 className="h-auto w-full max-w-xs"
+                style={{ height: "auto" }}
               />
               <div className="rounded-md border border-[#75b183]/30 bg-[#75b183]/10 px-3 py-2 text-sm text-[#bce4c4]">
                 MVP ready

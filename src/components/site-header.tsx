@@ -119,6 +119,7 @@ export function SiteHeader() {
             height={45}
             preload
             className="h-auto w-40 sm:w-48"
+            style={{ height: "auto" }}
           />
         </Link>
         <div className="hidden items-center gap-7 text-sm text-zinc-300 md:flex">

@@ -12,6 +12,7 @@ export function SiteFooter() {
             width={210}
             height={50}
             className="h-auto w-44 sm:w-52"
+            style={{ height: "auto" }}
           />
         </Link>
         <div className="flex flex-col gap-1 text-right">
